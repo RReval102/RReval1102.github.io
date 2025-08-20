@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме – Садрисламов Реваль – SRE Инженер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #111827;
+            --secondary-bg-color: #1F2937;
+            --text-color: #E5E7EB;
+            --primary-color: #38BDF8;
+            --border-color: #374151;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --subtitle-color: #9CA3AF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .resume-page {
+            background: var(--secondary-bg-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .photo:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.7);
+        }
+
+        .name {
+            color: var(--primary-color);
+            font-size: 2.8em;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .position {
+            color: var(--subtitle-color);
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-top: 5px;
+        }
+
+        /* General Section Styling */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        h4 {
+            color: var(--text-color);
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        p, li {
+            font-size: 1em;
+            color: var(--subtitle-color);
+        }
+        
+        strong {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Page 1 Specifics */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 25px;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .contact-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: var(--border-color);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        /* Page 2 Specifics - Timeline */
+        .timeline {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .entry {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border: 4px solid var(--secondary-bg-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .entry .date {
+            font-size: 0.9em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .entry h4 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: var(--text-color);
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Page 3 Specifics - Projects & SRE Mindset */
+        .project-item {
+            margin-bottom: 25px;
+        }
+
+        .project-item h4 a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .project-item h4 a:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-tech {
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .sre-concept {
+            background: #111827;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .sre-concept h4 {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 1200px) {
+            .resume-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+            }
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .resume-page {
+                padding: 25px;
+            }
+            .name {
+                font-size: 2.2em;
+            }
+            .position {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="resume-grid">
+
+            <!-- PAGE 1: INTRODUCTION & SKILLS -->
+            <div class="resume-page" id="page1">
+                <div class="header-section">
+                    <div class="photo">
+                        <img src="https://avatars.mds.yandex.net/get-images-cbir/8567728/GuP75-qHNpA-ix_B1W9i8g6467/preview" alt="Фото Реваля Садрисламова" onerror="this.onerror=null;this.src='https://placehold.co/150x150/1F2937/E5E7EB?text=RS';">
+                    </div>
+                    <h1 class="name">Садрисламов Реваль</h1>
+                    <p class="position">Начинающий SRE Инженер</p>
+                </div>
+
+                <div class="section contact-info">
+                    <h2 class="title">Контактная информация</h2>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:sadrik30@mail.ru">sadrik30@mail.ru</a></li>
+                        <li class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/RReval102" target="_blank">github.com/RReval102</a></li>
+                        <li class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+79870998117">+7 (987) 099-8117</a></li>
+                        <li class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Екатеринбург, Россия (готов к релокации)</span></li>
+                        <li class="contact-item"><i class="fas fa-flag"></i> <span>Гражданство: Российская Федерация</span></li>
+                    </ul>
+                </div>
+
+                <div class="section about">
+                    <h2 class="title">Обо мне</h2>
+                    <p>Я — начинающий инженер, увлеченный созданием <strong>надежных и масштабируемых систем</strong>. Моя страсть к автомобилям научила меня ценить инженерную точность, предсказуемость и важность своевременного "техобслуживания" — принципы, которые я применяю и в IT. Мне интересно не просто писать код, а выстраивать полный жизненный цикл сервиса: от развертывания и мониторинга до анализа инцидентов и предотвращения их в будущем.</p>
+                    <p>Считаю, что основа современной инженерии — это культура ответственности и постоянного улучшения. Я активно изучаю DevOps-практики и принципы SRE, потому что верю, что стабильность продукта — это общая задача, а не только работа отдела эксплуатации.</p>
+                </div>
+                
+                <div class="section objective">
+                    <h2 class="title">Цель</h2>
+                    <p>Ищу возможность для стажировки на позиции <strong>SRE (Site Reliability Engineering)</strong>, чтобы применить теоретические знания на практике и вырасти в специалиста, способного обеспечивать бесперебойную работу высоконагруженных сервисов. Моя цель — научиться определять и поддерживать <strong>SLI/SLO</strong>, автоматизировать рутинные задачи с помощью <strong>CI/CD</strong>, выстраивать эффективную систему <strong>мониторинга и алертинга</strong>, и стать частью команды, для которой надежность — ключевая ценность.</p>
+                </div>
+
+                <div class="section skills">
+                    <h2 class="title">Технический стек</h2>
+                    <div class="skill-category">
+                        <h4>Языки программирования</h4>
+                        <div class="skill-list">
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">C++</div>
+                            <div class="skill-item">Kotlin</div>
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">Bash</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>DevOps & SRE</h4>
+                        <div class="skill-list">
+                            <div class="skill-item">Docker</div>
+                            <div class="skill-item">CI/CD (GitHub Actions)</div>
+                            <div class="skill-item">Prometheus</div>
+                            <div class="skill-item">Grafana</div>
+                            <div class="skill-item">Git</div>
+                            <div class="skill-item">Linux</div>
+                        </div>
+                    </div>
+                     <div class="skill-category">
+                        <h4>Базы данных</h4>
+                        <div class="skill-list">
+                            <div class="skill-item">PostgreSQL</div>
+                            <div class="skill-item">SQLite</div>
+                            <div class="skill-item">Redis</div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Soft Skills</h4>
+                        <div class="skill-list">
+                            <div class="skill-item">Анализ проблем</div>
+                            <div class="skill-item">Командная работа</div>
+                            <div class="skill-item">Blameless Postmortems</div>
+                            <div class="skill-item">Коммуникация</div>
+                            <div class="skill-item">Тайм-менеджмент</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: EXPERIENCE & EDUCATION -->
+            <div class="resume-page" id="page2">
+                <div class="section experience">
+                    <h2 class="title">Опыт работы</h2>
+                    <div class="timeline">
+                        <div class="entry">
+                            <div class="date">Февраль 2025 – настоящее время</div>
+                            <h4>Системный аналитик, Апогей-БК</h4>
+                            <ul>
+                                <li><strong>Автоматизация и разработка:</strong> Разрабатываю и поддерживаю внутренние инструменты на Python для автоматизации бизнес-процессов, что сократило время выполнения рутинных задач на 20%.</li>
+                                <li><strong>Внедрение CI/CD:</strong> Инициировал и настроил базовый CI-пайплайн на GitHub Actions для автоматического тестирования и линтинга Python-скриптов перед развертыванием.</li>
+                                <li><strong>Основы мониторинга:</strong> Внедрил систему логирования для ключевых скриптов и настроил простые алерты в Telegram для оперативного уведомления о сбоях.</li>
+                                <li><strong>Работа с данными:</strong> Проектирую и оптимизирую запросы к базам данных, обеспечивая корректную и быструю обработку информации.</li>
+                            </ul>
+                        </div>
+                        <div class="entry">
+                            <div class="date">2023 – 2024</div>
+                            <h4>Сборщик заказов, Сима-ленд</h4>
+                            <p>Эта работа научила меня <strong>эффективности и вниманию к деталям</strong> в условиях высокого темпа. Развил навыки работы в команде и организации процессов для достижения общей цели, что напрямую связано с координацией действий во время инцидентов.</p>
+                        </div>
+                        <div class="entry">
+                            <div class="date">2022 – 2023</div>
+                            <h4>Курьер, Яндекс</h4>
+                            <p>Опыт, который отточил мое <strong>умение управлять временем</strong> и сохранять спокойствие в стрессовых ситуациях. Научился быстро ориентироваться и принимать решения при изменении обстоятельств — ключевой навык для дежурного инженера.</p>
+                        </div>
+                        <div class="entry">
+                            <div class="date">2021 – 2022</div>
+                            <h4>Оператор call-центра, Ростелеком</h4>
+                            <ul>
+                                <li><strong>Техническая поддержка:</strong> Получил первый опыт диагностики проблем пользователей. Научился задавать правильные вопросы для локализации неисправностей.</li>
+                                <li><strong>Коммуникация:</strong> Отточил навык объяснения сложных технических концепций простым и понятным языком, что важно при ведении инцидентов и написании постмортемов.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section education">
+                    <h2 class="title">Образование</h2>
+                    <div class="entry">
+                        <h4>Уральский Федеральный Университет (УрФУ)</h4>
+                        <p><strong>Направление:</strong> Прикладная математика</p>
+                        <p class="date">2023 – 2027 (ожидаемое окончание)</p>
+                        <ul>
+                            <li><strong>Ключевые дисциплины:</strong> Алгоритмы и структуры данных, дискретная математика, теория вероятностей, базы данных, основы машинного обучения.</li>
+                            <li>Фундаментальная математическая подготовка помогает мне анализировать производительность систем и понимать сложные алгоритмы.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3: PROJECTS & SRE MINDSET -->
+            <div class="resume-page" id="page3">
+                <div class="section projects">
+                    <h2 class="title">Личные проекты</h2>
+                    <div class="project-item">
+                        <h4><a href="#">City Assistant (Android & Backend)</a></h4>
+                        <p class="project-tech">Kotlin, Python, Flask, PostgreSQL</p>
+                        <p>Комплексный проект, состоящий из Android-приложения и серверной части. Бэкенд на Flask обрабатывает запросы, взаимодействует с базой данных и отдает информацию (расписания, уведомления) клиенту. Проект научил меня основам клиент-серверной архитектуры.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="#">Университетский Telegram-бот</a></h4>
+                        <p class="project-tech">Python, Aiogram, SQLite, openpyxl</p>
+                        <p>Разработал бота для сбора информации от студентов и преподавателей с разграничением прав доступа. Реализовал экспорт собранных данных в Excel. В этом проекте я впервые столкнулся с необходимостью обеспечить отказоустойчивость и обработку ошибок.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4><a href="#">Сетевые утилиты на Python</a></h4>
+                        <p class="project-tech">Python, Sockets</p>
+                        <p>Реализовал DNS-утилиту с поддержкой кодирования указателей и многопоточный TCP-сервер. Эти проекты углубили мое понимание сетевых протоколов и низкоуровневого взаимодействия, что критически важно для диагностики проблем в распределенных системах.</p>
+                    </div>
+                </div>
+
+                <div class="section sre-mindset">
+                    <h2 class="title">SRE-подход на практике</h2>
+                    <div class="sre-concept">
+                        <h4>Пример инцидента и постмортема</h4>
+                        <p><strong>Инцидент:</strong> Telegram-бот перестал отвечать на запросы пользователей из-за дедлока при конкурентной записи в файловый кеш во время пиковой нагрузки.</p>
+                        <p><strong>Влияние:</strong> Полная недоступность сервиса для ~50 пользователей в течение 25 минут.</p>
+                        <p><strong>Расследование:</strong> Анализ логов показал, что несколько потоков одновременно пытались получить блокировку на один и тот же файл, что привело к взаимной блокировке.</p>
+                        <p><strong>Решение:</strong>
+                            <ul>
+                                <li><strong>Краткосрочное:</strong> Перезапуск сервиса для снятия блокировки.</li>
+                                <li><strong>Долгосрочное:</strong> Миграция кеша с файловой системы на <strong>in-memory хранилище (Redis)</strong> для атомарных операций. Добавлен health-check эндпоинт и настроен алерт в Telegram при его недоступности.</li>
+                            </ul>
+                        </p>
+                        <p><strong>Выводы и Action Items:</strong> Проблема не в ошибке разработчика, а в архитектуре. Внедрил нагрузочное тестирование для имитации пиковой нагрузки. Добавил в CI-пайплайн статический анализатор для поиска потенциально блокирующих вызовов. Создал Runbook.</p>
+                    </div>
+
+                    <div class="sre-concept">
+                        <h4>Пример Runbook'а: "Бот не отвечает"</h4>
+                        <p><strong>Цель:</strong> Быстро восстановить работоспособность бота при потере ответа.</p>
+                        <p><strong>Шаги диагностики:</strong>
+                            <ol>
+                                <li><strong>Проверить алерт-канал:</strong> Есть ли активные оповещения от системы мониторинга?</li>
+                                <li><strong>Проверить Health Check:</strong> Сделать запрос к <code>/health</code> эндпоинту. Ожидаемый ответ: <code>{"status": "ok"}</code>.</li>
+                                <li><strong>Анализ логов:</strong> Посмотреть последние логи контейнера: <code>docker logs --tail 100 bot_container</code>. Искать ошибки, связанные с сетью, базой данных или внешними API.</li>
+                            </ol>
+                        </p>
+                        <p><strong>Шаги по устранению:</strong>
+                            <ul>
+                                <li><strong>Если проблема в кеше (Redis):</strong> Проверить доступность Redis. При необходимости перезапустить контейнер с кешем.</li>
+                                <li><strong>Если недоступен внешний API:</strong> Включить режим "только чтение из кеша", уведомить пользователей о временных ограничениях.</li>
+                                <li><strong>Если непонятная ошибка:</strong> Безопасно перезапустить контейнер с ботом: <code>docker restart bot_container</code>.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
